@@ -17,6 +17,20 @@ func input_bord() [2]int {
 	return n
 }
 
+func check_number(a [8][8]string) {
+	n := [2]int{0, 0}
+	for i := 0; i < 8; i++ {
+		for j := 0; j < 8; j++ {
+			if a[i][j] == "O" {
+				n[0]++
+			} else if a[i][j] == "X" {
+				n[1]++
+			}
+		}
+	}
+	fmt.Println("O:%v, X:%v.", n[0], n[1])
+}
+
 func main() {
 	a := [8][8]string{{".", ".", ".", ".", ".", ".", ".", "."},
 		{".", ".", ".", ".", ".", ".", ".", "."},
@@ -42,6 +56,7 @@ func main() {
 			// win := check_winner(a)
 
 			print_board(a)
+			check_number(a)
 			/*
 				if win == "O" {
 					fmt.Printf("Player %v win!\n", i%2+1)
@@ -54,6 +69,7 @@ func main() {
 			// win := check_winner(a)
 
 			print_board(a)
+			check_number(a)
 			/*
 				if win == "X" {
 					fmt.Printf("Player %v win!\n", i%2+1)
@@ -61,5 +77,6 @@ func main() {
 				}
 			*/
 		}
+		fmt.Println("Draw.")
 	}
 }
