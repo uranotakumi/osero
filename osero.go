@@ -27,4 +27,39 @@ func main() {
 		{".", ".", ".", ".", ".", ".", ".", "."},
 		{".", ".", ".", ".", ".", ".", ".", "."}}
 	print_board(a)
+
+	for i := 0; i < 60; i++ {
+		fmt.Printf("Player %v 's turn. Enter position (x,y)\n", i%2+1)
+		var n [2]int
+		n = input_bord()
+		if (a[n[0]-1][n[1]-1] == "O") || (a[n[0]-1][n[1]-1] == "X") {
+			fmt.Println("Cheat!!!!!")
+			break
+		}
+		if i%2 == 0 {
+			a[n[0]-1][n[1]-1] = "O"
+
+			// win := check_winner(a)
+
+			print_board(a)
+			/*
+				if win == "O" {
+					fmt.Printf("Player %v win!\n", i%2+1)
+					break
+				}
+			*/
+		} else {
+			a[n[0]-1][n[1]-1] = "X"
+
+			// win := check_winner(a)
+
+			print_board(a)
+			/*
+				if win == "X" {
+					fmt.Printf("Player %v win!\n", i%2+1)
+					break
+				}
+			*/
+		}
+	}
 }
